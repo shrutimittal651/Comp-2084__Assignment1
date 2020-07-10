@@ -6,9 +6,12 @@
 
 <h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -25,23 +28,28 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AlbumName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AlbumReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Singer)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AlbumID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AlbumID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AlbumID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlbumName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlbumReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Singer)
+                </td>
+
+                @if (User.IsInRole("Administrator"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AlbumID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.AlbumID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AlbumID">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
     </tbody>
 </table>

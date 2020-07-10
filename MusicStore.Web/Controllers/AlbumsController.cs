@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using MusicStore.Web.Models;
 
 namespace MusicStore.Web.Controllers
 {
+ [Authorize(Roles ="Administrator")]
     public class AlbumsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,12 +22,14 @@ namespace MusicStore.Web.Controllers
         }
 
         // GET: Albums
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Albums.ToListAsync());
         }
 
         // GET: Albums/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +48,7 @@ namespace MusicStore.Web.Controllers
         }
 
         // GET: Albums/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +59,7 @@ namespace MusicStore.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("AlbumID,AlbumName,AlbumReleaseDate,Singer")] Album album)
         {
             if (ModelState.IsValid)
@@ -66,6 +72,7 @@ namespace MusicStore.Web.Controllers
         }
 
         // GET: Albums/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +92,7 @@ namespace MusicStore.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AlbumID,AlbumName,AlbumReleaseDate,Singer")] Album album)
         {
@@ -117,6 +125,7 @@ namespace MusicStore.Web.Controllers
         }
 
         // GET: Albums/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +146,7 @@ namespace MusicStore.Web.Controllers
         // POST: Albums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var album = await _context.Albums.FindAsync(id);

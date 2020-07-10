@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shrut\\Desktop\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web.csproj": {}
+    "C:\\Users\\shrut\\Desktop\\Assignment\\Comp-2084__Assignment1\\MusicStore.Web\\MusicStore.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shrut\\Desktop\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web.csproj": {
+    "C:\\Users\\shrut\\Desktop\\Assignment\\Comp-2084__Assignment1\\MusicStore.Web\\MusicStore.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shrut\\Desktop\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web.csproj",
+        "projectUniqueName": "C:\\Users\\shrut\\Desktop\\Assignment\\Comp-2084__Assignment1\\MusicStore.Web\\MusicStore.Web.csproj",
         "projectName": "MusicStore.Web",
-        "projectPath": "C:\\Users\\shrut\\Desktop\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web.csproj",
+        "projectPath": "C:\\Users\\shrut\\Desktop\\Assignment\\Comp-2084__Assignment1\\MusicStore.Web\\MusicStore.Web.csproj",
         "packagesPath": "C:\\Users\\shrut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shrut\\Desktop\\MusicStore.Web\\MusicStore.Web\\MusicStore.Web\\obj\\",
+        "outputPath": "C:\\Users\\shrut\\Desktop\\Assignment\\Comp-2084__Assignment1\\MusicStore.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
